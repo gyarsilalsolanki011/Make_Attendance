@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,11 +47,17 @@ public class LoginActivity extends AppCompatActivity {
         }else if(TextUtils.isEmpty(password)){
             Snackbar.make(binding.getRoot(), "Password is required", Snackbar.LENGTH_SHORT).show();
         }else{
+            binding.progressIndicator.setVisibility(View.VISIBLE);
+            binding.loginButton.setVisibility(View.GONE);
             Task<AuthResult> task = auth.login(email, password);
             task.addOnSuccessListener(result -> {
                 checkUser();
+                binding.progressIndicator.setVisibility(View.GONE);
+                binding.loginButton.setVisibility(View.VISIBLE);
             });
             task.addOnFailureListener(error -> {
+                binding.progressIndicator.setVisibility(View.GONE);
+                binding.loginButton.setVisibility(View.VISIBLE);
                 Log.d("AUTH", error.toString());
                 Snackbar.make(binding.getRoot(), Objects.requireNonNull(error.getMessage()), Snackbar.LENGTH_SHORT).show();
             });
