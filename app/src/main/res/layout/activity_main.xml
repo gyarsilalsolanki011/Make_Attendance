@@ -8,6 +8,7 @@
     tools:context=".activities.MainActivity">
 
     <TextView
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -15,5 +16,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logoutButton"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintLeft_toLeftOf="@id/email"
+        app:layout_constraintRight_toRightOf="@id/email"
+        android:text="@string/log_out"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
