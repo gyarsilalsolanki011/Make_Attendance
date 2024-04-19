@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         binding.email.setText(auth.getCurrentUser().getEmail());
         binding.logoutButton.setOnClickListener(
                 v-> logout()

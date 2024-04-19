@@ -1,7 +1,9 @@
 package com.gyarsilalsolanki011.makeattendance.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +30,10 @@ public class RegisterActivity extends AppCompatActivity {
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.alreadyAccountTextButton.setOnClickListener(v->{
+            finish();
+        });
+
         binding.createAccountButton.setOnClickListener(
                 v -> createUser()
         );
@@ -47,16 +53,22 @@ public class RegisterActivity extends AppCompatActivity {
             Snackbar.make(binding.getRoot(), "Password is required", Snackbar.LENGTH_SHORT).show();
         } else {
             if (password.equals(passwordConfirm)) {
+                binding.progressIndicator.setVisibility(View.VISIBLE);
+                binding.createAccountButton.setVisibility(View.GONE);
                 Task<AuthResult> task = auth.register(email, password);
                 task.addOnSuccessListener(
                         result -> {
                             FirebaseUser user = result.getUser();
                             assert user != null;
-                            Snackbar.make(binding.getRoot(), Objects.requireNonNull(user.getEmail()), Snackbar.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
                         }
                 );
                 task.addOnFailureListener(
                         error -> {
+                            binding.progressIndicator.setVisibility(View.GONE);
+                            binding.createAccountButton.setVisibility(View.VISIBLE);
                             FirebaseException authError = (FirebaseException) error;
                             Snackbar.make(binding.getRoot(), Objects.requireNonNull(authError.getMessage()), Snackbar.LENGTH_SHORT).show();
                         }

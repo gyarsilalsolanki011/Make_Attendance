@@ -31,7 +31,10 @@ public class LoginActivity extends AppCompatActivity {
         checkUser();
 
         binding.createAccountTextButton.setOnClickListener(
-                v -> {}
+                v -> {
+                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                    startActivity(intent);
+                }
         );
         binding.loginButton.setOnClickListener(
                 v -> login()
