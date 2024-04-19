@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        checkUser();
 
         binding.createAccountTextButton.setOnClickListener(
                 v -> {
@@ -54,9 +53,9 @@ public class LoginActivity extends AppCompatActivity {
             binding.loginButton.setVisibility(View.GONE);
             Task<AuthResult> task = auth.login(email, password);
             task.addOnSuccessListener(result -> {
-                checkUser();
-                binding.progressIndicator.setVisibility(View.GONE);
-                binding.loginButton.setVisibility(View.VISIBLE);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             });
             task.addOnFailureListener(error -> {
                 binding.progressIndicator.setVisibility(View.GONE);
@@ -64,14 +63,6 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("AUTH", error.toString());
                 Snackbar.make(binding.getRoot(), Objects.requireNonNull(error.getMessage()), Snackbar.LENGTH_SHORT).show();
             });
-        }
-    }
-
-    private void checkUser(){
-        if(auth.getCurrentUser() != null){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
         }
     }
 }
