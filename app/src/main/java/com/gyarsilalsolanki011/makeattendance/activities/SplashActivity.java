@@ -50,7 +50,6 @@ public class SplashActivity extends AppCompatActivity {
                 default:
                     intent = new Intent(SplashActivity.this, MainActivity.class);
             }
-            Log.d("SPLASH", userType.name());
             startActivity(intent);
             finish();
         } else {
