@@ -13,6 +13,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityRegisterBinding;
 import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
+import com.gyarsilalsolanki011.makeattendance.repository.user.FirebaseUserRepository;
+import com.gyarsilalsolanki011.makeattendance.repository.user.model.User;
 
 import java.util.Objects;
 
@@ -20,6 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private ActivityRegisterBinding binding;
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
+    private final FirebaseUserRepository user = new FirebaseUserRepository();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Task<AuthResult> task = auth.register(email, password);
                 task.addOnSuccessListener(
                         result -> {
+                            user.setUserData(User.student(email, fullName));
                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
