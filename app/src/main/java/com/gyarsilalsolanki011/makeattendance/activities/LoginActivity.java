@@ -14,7 +14,10 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityLoginBinding;
 import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
+import com.gyarsilalsolanki011.makeattendance.repository.user.FirebaseUserRepository;
+import com.gyarsilalsolanki011.makeattendance.repository.user.UserType;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -28,7 +31,6 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        checkUser();
 
         binding.createAccountTextButton.setOnClickListener(
                 v -> {
@@ -69,9 +71,17 @@ public class LoginActivity extends AppCompatActivity {
 
     private void checkUser(){
         if(auth.getCurrentUser() != null){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+            new FirebaseUserRepository().getUserData().addOnSuccessListener(
+                    doc->{
+                        Map<String, Object> user = doc.getData();
+                        assert user != null;
+                        if(UserType.valueOf(Objects.requireNonNull(user.get("type")).toString())==UserType.Student){
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+                    }
+            );
         }
     }
 }
