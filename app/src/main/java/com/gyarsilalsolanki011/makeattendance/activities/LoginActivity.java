@@ -16,7 +16,6 @@ import com.google.firebase.auth.AuthResult;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityLoginBinding;
 import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
 import com.gyarsilalsolanki011.makeattendance.repository.user.FirebaseUserRepository;
-import com.gyarsilalsolanki011.makeattendance.repository.user.UserType;
 
 import java.util.Objects;
 
@@ -55,16 +54,16 @@ public class LoginActivity extends AppCompatActivity {
         }else{
             binding.progressIndicator.setVisibility(View.VISIBLE);
             binding.loginButton.setVisibility(View.GONE);
+
             Task<AuthResult> task = auth.login(email, password);
-            task.addOnSuccessListener(result -> {
-                userRepository.getUserData().addOnSuccessListener(doc->{
-                    SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
-                    sharedPreferences.edit().putString("userType", (String) Objects.requireNonNull(doc.getData()).get("type")).apply();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                });
-            });
+            task.addOnSuccessListener(result -> userRepository.getUserData().addOnSuccessListener(doc->{
+                SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
+                sharedPreferences.edit().putString("userType", (String) Objects.requireNonNull(doc.getData()).get("type")).apply();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }));
+
             task.addOnFailureListener(error -> {
                 binding.progressIndicator.setVisibility(View.GONE);
                 binding.loginButton.setVisibility(View.VISIBLE);
