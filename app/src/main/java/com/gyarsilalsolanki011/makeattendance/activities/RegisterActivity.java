@@ -10,11 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseUser;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityRegisterBinding;
 import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
+import com.gyarsilalsolanki011.makeattendance.repository.user.FirebaseUserRepository;
+import com.gyarsilalsolanki011.makeattendance.repository.user.model.User;
 
 import java.util.Objects;
 
@@ -22,6 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private ActivityRegisterBinding binding;
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
+    private final FirebaseUserRepository user = new FirebaseUserRepository();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.alreadyAccountTextButton.setOnClickListener(v->{
-            finish();
-        });
+        binding.alreadyAccountTextButton.setOnClickListener(v-> finish());
 
         binding.createAccountButton.setOnClickListener(
                 v -> createUser()
@@ -58,8 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Task<AuthResult> task = auth.register(email, password);
                 task.addOnSuccessListener(
                         result -> {
-                            FirebaseUser user = result.getUser();
-                            assert user != null;
+                            user.setUserData(User.student(email, fullName));
                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
@@ -69,8 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                         error -> {
                             binding.progressIndicator.setVisibility(View.GONE);
                             binding.createAccountButton.setVisibility(View.VISIBLE);
-                            FirebaseException authError = (FirebaseException) error;
-                            Snackbar.make(binding.getRoot(), Objects.requireNonNull(authError.getMessage()), Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(binding.getRoot(), Objects.requireNonNull(error.getMessage()), Snackbar.LENGTH_SHORT).show();
                         }
                 );
             } else {
