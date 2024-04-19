@@ -28,9 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.alreadyAccountTextButton.setOnClickListener(v->{
-            finish();
-        });
+        binding.alreadyAccountTextButton.setOnClickListener(v-> finish());
 
         binding.createAccountButton.setOnClickListener(
                 v -> createUser()
