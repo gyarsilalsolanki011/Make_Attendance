@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".activities.LoginActivity"
     android:gravity="center"
     android:padding="16dp"
@@ -87,6 +88,7 @@
         android:layout_marginTop="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blue"
         android:clickable="true"
         android:text="@string/already_have_an_account_login"
         android:focusable="true" />
