@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/activity_background"
     tools:context=".activities.LoginActivity"
     android:gravity="center"
     android:padding="16dp"
@@ -51,12 +51,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
+        android:background="@drawable/button_background"
         android:layout_marginTop="24dp"
         android:paddingHorizontal="48dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/Theme.Button.Text"
         android:text="@string/login" />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
