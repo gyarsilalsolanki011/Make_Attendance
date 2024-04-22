@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/activity_background"
     tools:context=".activities.LoginActivity"
     android:gravity="center"
     android:padding="16dp"
@@ -16,6 +17,13 @@
         android:textSize="32sp"
         android:textStyle="bold"
         android:text="@string/login"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="18sp"
+        android:text="@string/welcome_back"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_marginTop="24dp"
@@ -43,12 +51,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
+        android:background="@drawable/button_background"
         android:layout_marginTop="24dp"
         android:paddingHorizontal="48dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/Theme.Button.Text"
         android:text="@string/login" />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -65,6 +75,7 @@
         android:layout_marginTop="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blue"
         android:clickable="true"
         android:text="@string/don_t_have_an_account_create_one"
         android:focusable="true" />
