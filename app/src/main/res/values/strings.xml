@@ -17,9 +17,15 @@
     <string name="contact_us">Contact</string>
     <string name="profile">Profile</string>
     <string name="home_fragments">Home Fragments</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="utilities_fragment">Utilities Fragment</string>
     <string name="profile_fragment">Profile Fragment</string>
     <string name="contact_fragment">Contact Fragment</string>
+    <string name="title">TitleName</string>
+    <string name="percentage">percentage :</string>
+    <string name="press_if_not_attended">press_if_not_attended</string>
+    <string name="press_if_attended">press_if_attended</string>
+    <string name="logout">Log Out</string>
+    <string name="present">Present :</string>
+    <string name="absent">Absent :</string>
+    <string name="take_attendance">Take Attendance</string>
 </resources>
