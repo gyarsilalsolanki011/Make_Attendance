@@ -47,9 +47,9 @@ public class StudentHomeActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         if (flag == 0)
-            ft.add(R.id.container, fragment);
+            ft.add(R.id.container_Student, fragment);
         else
-            ft.replace(R.id.container, fragment);
+            ft.replace(R.id.container_Student, fragment);
         ft.commit();
     }
 }
