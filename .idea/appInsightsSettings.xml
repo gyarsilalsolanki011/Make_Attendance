@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.gyarsilalsolanki011.makeattendance" />
-                  <option name="mobileSdkAppId" value="1:508535966125:android:dccf43b86f000362f93924" />
-                  <option name="projectId" value="makeattendance-887a8" />
-                  <option name="projectNumber" value="508535966125" />
+                  <option name="appId" value="PLACEHOLDER" />
+                  <option name="mobileSdkAppId" value="" />
+                  <option name="projectId" value="" />
+                  <option name="projectNumber" value="" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

@@ -28,4 +28,14 @@
     <string name="present">Present :</string>
     <string name="absent">Absent :</string>
     <string name="take_attendance">Take Attendance</string>
+    <string name="developer">Designed and Developed by :</string>
+    <string name="developer_name">Gyarsilal Solanki</string>
+    <string name="developer_email">gyarsilalsolanki011@gmail.com</string>
+    <string name="linkedin">LinkedIn :</string>
+    <string name="linkedIn_link">gyarsilalsolanki</string>
+    <string name="github">Github :</string>
+    <string name="Github_link">gyarsilalsolanki011</string>
+    <string name="message_us">Message Us</string>
+    <string name="e_mail_us">E-Mail Us</string>
+    <string name="share_via">Share Via</string>
 </resources>

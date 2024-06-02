@@ -7,4 +7,5 @@
     <color name="shadow_white">#494949</color>
     <color name="red">#D84242</color>
     <color name="green">#58CF3C</color>
+    <color name="cardView">#0059E327</color>
 </resources>
