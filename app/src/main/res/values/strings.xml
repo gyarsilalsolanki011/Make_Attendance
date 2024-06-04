@@ -28,6 +28,11 @@
     <string name="present">Present :</string>
     <string name="absent">Absent :</string>
     <string name="take_attendance">Take Attendance</string>
+    <string name="classes_conducted">Classes Conducted :</string>
+    <string name="classes_attended">Classes Attended :</string>
+    <string name="notification1">You are in the short List</string>
+    <string name="notification2">You are not in the short list</string>
+    <string name="view_attendance">View Attendance</string>
     <string name="developer">Designed and Developed by :</string>
     <string name="developer_name">Gyarsilal Solanki</string>
     <string name="developer_email">gyarsilalsolanki011@gmail.com</string>
