@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import com.gyarsilalsolanki011.makeattendance.R;
 
-public class ProfileFragment extends Fragment {
+public class StaffProfileFragment extends Fragment {
 
-    public ProfileFragment() {
+    public StaffProfileFragment() {
         // Required empty public constructor
     }
 

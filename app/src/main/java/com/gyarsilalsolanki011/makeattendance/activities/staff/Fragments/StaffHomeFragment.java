@@ -16,13 +16,12 @@ import com.gyarsilalsolanki011.makeattendance.activities.staff.adapter.Attendanc
 import com.gyarsilalsolanki011.makeattendance.activities.staff.model.AttendanceModel;
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
-
+public class StaffHomeFragment extends Fragment {
     ArrayList<AttendanceModel> arrAttends = new ArrayList<>();
     AttendanceRecyclerAdapter adapter;
     ProgressDialog progressDialog;
 
-    public HomeFragment() {
+    public StaffHomeFragment() {
     }
 
     @Override
@@ -48,10 +47,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void dataInitialize() {
-        arrAttends.add(new AttendanceModel("Gyarsilal Solamki",2,2,2));
-        arrAttends.add(new AttendanceModel("Motilal Solamki",2,2,2));
-        arrAttends.add(new AttendanceModel("Shantilal Solamki",2,2,2));
-        arrAttends.add(new AttendanceModel("Jogilal Solamki",2,2,2));
+        arrAttends.add(new AttendanceModel("Gyarsilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Motilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Shantilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Jogilal Solanki",2,2,2));
     }
 
     private void openProgressDialog() {

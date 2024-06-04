@@ -16,12 +16,12 @@ import com.gyarsilalsolanki011.makeattendance.R;
 import com.gyarsilalsolanki011.makeattendance.activities.LoginActivity;
 import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
 
-public class UtilitiesFragment extends Fragment {
+public class StaffUtilitiesFragment extends Fragment {
 
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
     MaterialButton button;
 
-    public UtilitiesFragment() {
+    public StaffUtilitiesFragment() {
 
     }
 
