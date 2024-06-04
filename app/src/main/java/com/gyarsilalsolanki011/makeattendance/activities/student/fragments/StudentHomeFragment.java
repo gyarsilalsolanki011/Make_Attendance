@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import com.gyarsilalsolanki011.makeattendance.R;
 
 
-public class HomeFragment extends Fragment {
+public class StudentHomeFragment extends Fragment {
 
-    public HomeFragment() {
+    public StudentHomeFragment() {
         // Required empty public constructor
     }
 

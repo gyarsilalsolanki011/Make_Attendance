@@ -13,10 +13,6 @@ import com.gyarsilalsolanki011.makeattendance.activities.staff.Fragments.StaffCo
 import com.gyarsilalsolanki011.makeattendance.activities.staff.Fragments.StaffHomeFragment;
 import com.gyarsilalsolanki011.makeattendance.activities.staff.Fragments.StaffProfileFragment;
 import com.gyarsilalsolanki011.makeattendance.activities.staff.Fragments.StaffUtilitiesFragment;
-import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.ContactFragment;
-import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.HomeFragment;
-import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.ProfileFragment;
-import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.UtilitiesFragment;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityStaffHomeBinding;
 
 public class StaffHomeActivity extends AppCompatActivity {

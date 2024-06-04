@@ -14,14 +14,12 @@ import android.view.ViewGroup;
 import com.google.android.material.button.MaterialButton;
 import com.gyarsilalsolanki011.makeattendance.R;
 import com.gyarsilalsolanki011.makeattendance.activities.LoginActivity;
-import com.gyarsilalsolanki011.makeattendance.activities.MainActivity;
-import com.gyarsilalsolanki011.makeattendance.databinding.FragmentUtilitiesBinding;
 import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
 
-public class UtilitiesFragment extends Fragment {
+public class StudentUtilitiesFragment extends Fragment {
     MaterialButton studentLogoutBtn;
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
-    public UtilitiesFragment() {
+    public StudentUtilitiesFragment() {
         // Required empty public constructor
     }
 
