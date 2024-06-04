@@ -9,6 +9,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.gyarsilalsolanki011.makeattendance.R;
+import com.gyarsilalsolanki011.makeattendance.activities.staff.Fragments.StaffContactFragment;
+import com.gyarsilalsolanki011.makeattendance.activities.staff.Fragments.StaffHomeFragment;
+import com.gyarsilalsolanki011.makeattendance.activities.staff.Fragments.StaffProfileFragment;
+import com.gyarsilalsolanki011.makeattendance.activities.staff.Fragments.StaffUtilitiesFragment;
 import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.ContactFragment;
 import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.HomeFragment;
 import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.ProfileFragment;
@@ -29,13 +33,13 @@ public class StaffHomeActivity extends AppCompatActivity {
             int id = menuItem.getItemId();
 
             if (id==R.id.nav_Utilities1){
-                loadFrag(new UtilitiesFragment(),1);
+                loadFrag(new StaffUtilitiesFragment(),1);
             }else if (id==R.id.nav_Contact1){
-                loadFrag(new ContactFragment(), 1);
+                loadFrag(new StaffContactFragment(), 1);
             }else if (id==R.id.nav_profile1){
-                loadFrag(new ProfileFragment(), 1);
+                loadFrag(new StaffProfileFragment(), 1);
             }else {
-                loadFrag(new HomeFragment(), 0);
+                loadFrag(new StaffHomeFragment(), 0);
             }
             return true;
         });

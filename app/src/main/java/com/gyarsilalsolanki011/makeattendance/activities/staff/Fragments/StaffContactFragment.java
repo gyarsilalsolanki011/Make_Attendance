@@ -15,9 +15,9 @@ import android.widget.Button;
 
 import com.gyarsilalsolanki011.makeattendance.R;
 
-public class ContactFragment extends Fragment {
+public class StaffContactFragment extends Fragment {
     Button btnEmail, btnMsg, btnShare;
-    public ContactFragment() {
+    public StaffContactFragment() {
         // Required empty public constructor
     }
     @Override
