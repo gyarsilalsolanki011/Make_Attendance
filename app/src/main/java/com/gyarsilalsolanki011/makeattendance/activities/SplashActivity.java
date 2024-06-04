@@ -1,13 +1,17 @@
 package com.gyarsilalsolanki011.makeattendance.activities;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
 import com.gyarsilalsolanki011.makeattendance.R;
 import com.gyarsilalsolanki011.makeattendance.activities.staff.StaffHomeActivity;
 import com.gyarsilalsolanki011.makeattendance.activities.student.StudentHomeActivity;
@@ -16,7 +20,10 @@ import com.gyarsilalsolanki011.makeattendance.repository.user.UserType;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
-
+    RadioGroup group;
+    String userType;
+    MaterialButton submitBtn;
+    RadioButton radioButton;
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
 
     @Override
@@ -56,5 +63,23 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         }
+    }
+
+    private String selectYourField() {
+        group = findViewById(R.id.radioGroup);
+        submitBtn = findViewById(R.id.submitBtn);
+
+        Dialog dialog = new Dialog(getApplicationContext());
+        dialog.setContentView(R.layout.login_option);
+        dialog.setCancelable(false);
+        dialog.show();
+
+        submitBtn.setOnClickListener(v -> {
+            int ID = group.getCheckedRadioButtonId();
+            radioButton = findViewById(ID);
+            userType = radioButton.getText().toString();
+            dialog.dismiss();
+        });
+        return userType;
     }
 }
