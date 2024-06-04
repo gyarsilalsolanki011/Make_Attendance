@@ -44,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
                     intent = new Intent(SplashActivity.this, StaffHomeActivity.class);
                     break;
                 case Student:
-                    intent = new Intent(SplashActivity.this, StaffHomeActivity.class);
+                    intent = new Intent(SplashActivity.this, StudentHomeActivity.class);
                     break;
                 default:
                     intent = new Intent(SplashActivity.this, MainActivity.class);

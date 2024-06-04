@@ -9,10 +9,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.gyarsilalsolanki011.makeattendance.R;
-import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.ContactFragment;
-import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.HomeFragment;
-import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.ProfileFragment;
-import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.UtilitiesFragment;
+import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.StudentContactFragment;
+import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.StudentHomeFragment;
+import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.StudentProfileFragment;
+import com.gyarsilalsolanki011.makeattendance.activities.student.fragments.StudentUtilitiesFragment;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityStudentHomeBinding;
 
 public class StudentHomeActivity extends AppCompatActivity {
@@ -30,13 +30,13 @@ public class StudentHomeActivity extends AppCompatActivity {
             int id = menuItem.getItemId();
 
             if (id==R.id.nav_Utilities){
-                loadFrag(new UtilitiesFragment(),1);
+                loadFrag(new StudentUtilitiesFragment(),1);
             }else if (id==R.id.nav_Contact){
-                loadFrag(new ContactFragment(), 1);
+                loadFrag(new StudentContactFragment(), 1);
             }else if (id==R.id.nav_profile){
-                loadFrag(new ProfileFragment(), 1);
+                loadFrag(new StudentProfileFragment(), 1);
             }else {
-                loadFrag(new HomeFragment(), 0);
+                loadFrag(new StudentHomeFragment(), 0);
             }
             return true;
         });

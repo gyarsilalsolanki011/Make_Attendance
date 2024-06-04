@@ -33,7 +33,7 @@ public class AttendanceViewRecyclerAdapter extends RecyclerView.Adapter<Attendan
 
     @Override
     public int getItemCount() {
-        return 0;
+        return arrayListAttendance.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
