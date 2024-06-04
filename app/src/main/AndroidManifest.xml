@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MakeAttendance"
         tools:targetApi="31">
         <activity
+            android:name=".activities.student.StudentRegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.staff.StaffRegistrationActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.staff.StaffHomeActivity"
             android:exported="false" />
         <activity

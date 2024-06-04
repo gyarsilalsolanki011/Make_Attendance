@@ -35,9 +35,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         whichUser = "Student";
+
         binding.createAccountTextButton.setOnClickListener(
                 v -> Register()
         );
+
         binding.loginButton.setOnClickListener(
                 v -> login()
         );
@@ -45,9 +47,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private  void Register(){
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        intent.putExtra("whichUser", whichUser);
         startActivity(intent);
         finish();
     }
+
 
     private void login(){
         String email = Objects.requireNonNull(binding.emailTextEdit.getText()).toString().trim();
