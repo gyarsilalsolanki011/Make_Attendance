@@ -10,8 +10,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:id="@+id/main"
         android:background="@drawable/activity_background">
 
@@ -30,7 +31,8 @@
                 android:layout_height="match_parent"
                 android:text="@string/view_attendance"
                 android:textStyle="bold"
-                android:textSize="36sp"
+                android:textSize="30sp"
+                android:padding="6dp"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:background="@drawable/activity_background"/>
@@ -38,9 +40,9 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="545dp"
+            android:layout_marginTop="5dp"
             android:id="@+id/viewRecycler"
 
             app:layout_constraintEnd_toEndOf="@id/card_view"
