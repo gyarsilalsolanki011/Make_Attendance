@@ -50,7 +50,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/classes_conducted"
-                        android:theme="@style/myTheme1"/>
+                        android:theme="@style/myTheme2"/>
 
                 </LinearLayout>
 
@@ -71,7 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/classes_attended"
-                        android:theme="@style/myTheme1"/>
+                        android:theme="@style/myTheme2"/>
 
                 </LinearLayout>
 

@@ -20,7 +20,6 @@ import com.gyarsilalsolanki011.makeattendance.repository.user.FirebaseUserReposi
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
-
     private ActivityLoginBinding binding;
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
     private final FirebaseUserRepository userRepository = new FirebaseUserRepository();
@@ -31,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        String whichUser = getIntent().getStringExtra("whichUser");
 
         binding.createAccountTextButton.setOnClickListener(
                 v -> {
