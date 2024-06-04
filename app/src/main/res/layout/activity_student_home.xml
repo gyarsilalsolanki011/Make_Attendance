@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/activity_background"
     tools:context=".activities.student.StudentHomeActivity">
 
     <FrameLayout
@@ -18,7 +19,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/bnView"
         app:menu="@menu/student_nave_items"
-        android:background="@color/white"
+        android:background="@color/green"
         android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
