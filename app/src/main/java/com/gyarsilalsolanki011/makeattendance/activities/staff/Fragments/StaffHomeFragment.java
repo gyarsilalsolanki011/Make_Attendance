@@ -44,12 +44,15 @@ public class StaffHomeFragment extends Fragment {
         adapter = new AttendanceRecyclerAdapter(getContext(),arrAttends);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        if (progressDialog.isShowing()) progressDialog.dismiss();
     }
 
     private void dataInitialize() {
         arrAttends.add(new AttendanceModel("Gyarsilal Solanki",2,2,2));
         arrAttends.add(new AttendanceModel("Motilal Solanki",2,2,2));
         arrAttends.add(new AttendanceModel("Shantilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Jogilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Bhaiyu Solanki",2,2,2));
         arrAttends.add(new AttendanceModel("Jogilal Solanki",2,2,2));
     }
 
