@@ -10,8 +10,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:id="@+id/main">
 
         <androidx.cardview.widget.CardView
@@ -38,8 +39,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="550dp"
+            android:layout_marginTop="4dp"
             android:id="@+id/recyclerView"
 
             app:layout_constraintEnd_toEndOf="@id/card_view"
