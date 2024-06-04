@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Task<AuthResult> task = auth.register(email, password);
                 task.addOnSuccessListener(
                         result -> {
-                            user.setUserData(User.student(email, fullName));
+                            user.setStudentData(User.student(email, fullName, "039", "CSE", "IV", "FullKumar", "Pushpa"));
                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);

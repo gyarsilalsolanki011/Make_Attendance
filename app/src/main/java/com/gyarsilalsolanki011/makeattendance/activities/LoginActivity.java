@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
+import com.gyarsilalsolanki011.makeattendance.activities.staff.StaffHomeActivity;
+import com.gyarsilalsolanki011.makeattendance.activities.student.StudentHomeActivity;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityLoginBinding;
 import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
 import com.gyarsilalsolanki011.makeattendance.repository.user.FirebaseUserRepository;
@@ -20,6 +22,7 @@ import com.gyarsilalsolanki011.makeattendance.repository.user.FirebaseUserReposi
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
+    private String whichUser;
     private ActivityLoginBinding binding;
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
     private final FirebaseUserRepository userRepository = new FirebaseUserRepository();
@@ -31,17 +34,19 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String whichUser = getIntent().getStringExtra("whichUser");
-
+        whichUser = "Student";
         binding.createAccountTextButton.setOnClickListener(
-                v -> {
-                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                    startActivity(intent);
-                }
+                v -> Register()
         );
         binding.loginButton.setOnClickListener(
                 v -> login()
         );
+    }
+
+    private  void Register(){
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void login(){
@@ -57,13 +62,9 @@ public class LoginActivity extends AppCompatActivity {
             binding.loginButton.setVisibility(View.GONE);
 
             Task<AuthResult> task = auth.login(email, password);
-            task.addOnSuccessListener(result -> userRepository.getUserData().addOnSuccessListener(doc->{
-                SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
-                sharedPreferences.edit().putString("userType", (String) Objects.requireNonNull(doc.getData()).get("type")).apply();
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }));
+            task.addOnSuccessListener(
+                    result -> checkUser()
+            );
 
             task.addOnFailureListener(error -> {
                 binding.progressIndicator.setVisibility(View.GONE);
@@ -73,4 +74,31 @@ public class LoginActivity extends AppCompatActivity {
             });
         }
     }
+
+    private void checkUser() {
+        if (whichUser.equals("Student")) {
+            userRepository.getStudentData().addOnSuccessListener(
+                    doc -> {
+                        SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
+                        sharedPreferences.edit().putString("userType", "Student").apply();
+                        Intent iStudentView = new Intent(LoginActivity.this, StudentHomeActivity.class);
+                        startActivity(iStudentView);
+                        finish();
+                    }
+            );
+        }
+
+        else {
+            userRepository.getFacultyData().addOnSuccessListener(
+                    doc -> {
+                        SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
+                        sharedPreferences.edit().putString("userType", "Faculty").apply();
+                        Intent iFacultyView = new Intent(LoginActivity.this, StaffHomeActivity.class);
+                        startActivity(iFacultyView);
+                        finish();
+                    }
+            );
+        }
+    }
+
 }
