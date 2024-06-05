@@ -47,5 +47,15 @@
     <string name="select_your_field">Select Your Field</string>
     <string name="admin">Admin</string>
     <string name="faculty">Faculty</string>
-    <string name="next">Move Forword</string>
+    <string name="next">Move Forward</string>
+    <string name="personalInformation">Personal Information</string>
+    <string name="student_name">Student Name</string>
+    <string name="roll_number">Roll Number</string>
+    <string name="branch">Branch</string>
+    <string name="semester">Semester</string>
+    <string name="father_name">Father Name</string>
+    <string name="mother_name">Mother Name</string>
+    <string name="submit">Submit</string>
+    <string name="faculty_name">Faculty Name</string>
+    <string name="subject">Subject</string>
 </resources>

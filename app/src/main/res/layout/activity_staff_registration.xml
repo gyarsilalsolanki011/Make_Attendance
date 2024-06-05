@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="18dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/activity_background"
+    tools:context=".activities.staff.StaffRegistrationActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:text="@string/personalInformation"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextFacultyName"
+            android:layout_width="match_parent"
+            android:hint="@string/faculty_name"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextBranch"
+            android:layout_width="match_parent"
+            android:hint="@string/branch"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSemester"
+            android:layout_width="match_parent"
+            android:hint="@string/semester"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSubject"
+            android:layout_width="match_parent"
+            android:hint="@string/subject"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:id="@+id/buttonSubmit"
+        android:background="@drawable/button_background"/>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:id="@+id/progressIndicator"/>
+
+</LinearLayout>

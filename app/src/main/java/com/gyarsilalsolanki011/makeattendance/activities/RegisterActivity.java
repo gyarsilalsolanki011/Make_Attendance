@@ -8,21 +8,18 @@ import android.view.View;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
+import com.gyarsilalsolanki011.makeattendance.activities.staff.StaffRegistrationActivity;
+import com.gyarsilalsolanki011.makeattendance.activities.student.StudentRegistrationActivity;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityRegisterBinding;
-import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
-import com.gyarsilalsolanki011.makeattendance.repository.user.FirebaseUserRepository;
-import com.gyarsilalsolanki011.makeattendance.repository.user.model.User;
+import com.gyarsilalsolanki011.makeattendance.repository.user.UserType;
 
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private String whichUser;
     private ActivityRegisterBinding binding;
-    private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
-    private final FirebaseUserRepository user = new FirebaseUserRepository();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        whichUser = getIntent().getStringExtra("whichUser");
 
         binding.alreadyAccountTextButton.setOnClickListener(v-> finish());
 
@@ -54,22 +53,30 @@ public class RegisterActivity extends AppCompatActivity {
             if (password.equals(passwordConfirm)) {
                 binding.progressIndicator.setVisibility(View.VISIBLE);
                 binding.createAccountButton.setVisibility(View.GONE);
-                Task<AuthResult> task = auth.register(email, password);
-                task.addOnSuccessListener(
-                        result -> {
-                            user.setUserData(User.student(email, fullName));
-                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-                        }
-                );
-                task.addOnFailureListener(
-                        error -> {
-                            binding.progressIndicator.setVisibility(View.GONE);
-                            binding.createAccountButton.setVisibility(View.VISIBLE);
-                            Snackbar.make(binding.getRoot(), Objects.requireNonNull(error.getMessage()), Snackbar.LENGTH_SHORT).show();
-                        }
-                );
+
+                if (whichUser.equals(UserType.Student.toString())){
+
+                    Intent iStudent = new Intent(RegisterActivity.this, StudentRegistrationActivity.class);
+                    iStudent.putExtra("email", email);
+                    iStudent.putExtra("fullName", fullName);
+                    iStudent.putExtra("password", password);
+                    startActivity(iStudent);
+
+                } else if (whichUser.equals(UserType.Faculty.toString())) {
+
+                    Intent iFaculty = new Intent(RegisterActivity.this, StaffRegistrationActivity.class);
+                    iFaculty.putExtra("email", email);
+                    iFaculty.putExtra("fullName", fullName);
+                    iFaculty.putExtra("password", password);
+                    startActivity(iFaculty);
+
+                } else {
+                    binding.progressIndicator.setVisibility(View.GONE);
+                    binding.createAccountButton.setVisibility(View.VISIBLE);
+                    Snackbar.make(binding.getRoot(), "Admin Introduced soon", Snackbar.LENGTH_SHORT).show();
+
+                }
+
             } else {
                 Snackbar.make(binding.getRoot(), "Confirm password did not match", Snackbar.LENGTH_SHORT).show();
             }
