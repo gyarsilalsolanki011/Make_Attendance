@@ -59,19 +59,20 @@ public class RegisterActivity extends AppCompatActivity {
                     Intent iStudent = new Intent(RegisterActivity.this, StudentRegistrationActivity.class);
                     iStudent.putExtra("email", email);
                     iStudent.putExtra("fullName", fullName);
+                    iStudent.putExtra("password", password);
                     startActivity(iStudent);
-                    finish();
 
                 } else if (whichUser.equals(UserType.Faculty.toString())) {
 
-                    Intent iStudent = new Intent(RegisterActivity.this, StaffRegistrationActivity.class);
-                    iStudent.putExtra("email", email);
-                    iStudent.putExtra("fullName", fullName);
-                    startActivity(iStudent);
-                    finish();
+                    Intent iFaculty = new Intent(RegisterActivity.this, StaffRegistrationActivity.class);
+                    iFaculty.putExtra("email", email);
+                    iFaculty.putExtra("fullName", fullName);
+                    iFaculty.putExtra("password", password);
+                    startActivity(iFaculty);
 
                 } else {
-
+                    binding.progressIndicator.setVisibility(View.GONE);
+                    binding.createAccountButton.setVisibility(View.VISIBLE);
                     Snackbar.make(binding.getRoot(), "Admin Introduced soon", Snackbar.LENGTH_SHORT).show();
 
                 }
