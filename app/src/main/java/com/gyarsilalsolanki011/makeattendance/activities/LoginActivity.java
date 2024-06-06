@@ -3,9 +3,12 @@ package com.gyarsilalsolanki011.makeattendance.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +26,8 @@ import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     private String whichUser;
+    String userType;
+    RadioButton radioButton;
     private ActivityLoginBinding binding;
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
     private final FirebaseUserRepository userRepository = new FirebaseUserRepository();
@@ -34,7 +39,10 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        whichUser = "Student";
+        binding.moveForward.setOnClickListener(v -> {
+            whichUser = selectYourField();
+            Toast.makeText(this, "You have Selected "+whichUser, Toast.LENGTH_SHORT).show();
+        });
 
         binding.createAccountTextButton.setOnClickListener(
                 v -> Register()
@@ -62,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         }else if(TextUtils.isEmpty(password)){
             Snackbar.make(binding.getRoot(), "Password is required", Snackbar.LENGTH_SHORT).show();
         }else{
-            binding.progressIndicator.setVisibility(View.VISIBLE);
+            binding.loginProgressIndicator.setVisibility(View.VISIBLE);
             binding.loginButton.setVisibility(View.GONE);
 
             Task<AuthResult> task = auth.login(email, password);
@@ -71,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
             );
 
             task.addOnFailureListener(error -> {
-                binding.progressIndicator.setVisibility(View.GONE);
+                binding.loginProgressIndicator.setVisibility(View.GONE);
                 binding.loginButton.setVisibility(View.VISIBLE);
                 Log.d("AUTH", error.toString());
                 Snackbar.make(binding.getRoot(), Objects.requireNonNull(error.getMessage()), Snackbar.LENGTH_SHORT).show();
@@ -103,6 +111,21 @@ public class LoginActivity extends AppCompatActivity {
                     }
             );
         }
+    }
+
+    private String selectYourField() {
+
+        int selectedId = binding.radioGroup.getCheckedRadioButtonId();
+        binding.moveForward.setVisibility(View.GONE);
+        binding.selectProgressIndicator.setVisibility(View.VISIBLE);
+        radioButton = findViewById(selectedId);
+        userType = radioButton.getText().toString();
+
+        new Handler().postDelayed(() -> {
+            binding.selectLinearLayout.setVisibility(View.GONE);
+            binding.loginLinearLayout.setVisibility(View.VISIBLE);
+        },1000);
+        return userType;
     }
 
 }

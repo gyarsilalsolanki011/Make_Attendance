@@ -86,11 +86,11 @@ public class AttendanceRecyclerAdapter extends RecyclerView.Adapter<AttendanceRe
     }
 
     private void updateAbsentData(AttendanceModel model) {
-        model.present += 1;
+        model.absent += 1;
     }
 
     private void updatePresentData(AttendanceModel model) {
-        model.absent += 1;
+        model.present += 1;
     }
 
     private void updatePercentageData(AttendanceModel model) {
