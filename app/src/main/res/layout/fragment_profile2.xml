@@ -3,12 +3,256 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/activity_background"
     tools:context=".activities.staff.Fragments.StaffProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/utilities_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/constraintLay">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/profile"
+            app:srcCompat="@drawable/icon_account_circle"
+
+            app:layout_constraintTop_toTopOf="@id/constraintLay"
+            app:layout_constraintStart_toStartOf="@id/constraintLay"
+            app:layout_constraintEnd_toEndOf="@id/constraintLay"/>
+
+        <TextView
+            android:id="@+id/studentNameSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/developer_name"
+            android:textAllCaps="true"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+
+            android:textSize="25sp"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/subjectSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+
+            app:layout_constraintEnd_toEndOf="@+id/studentNameSet"
+            app:layout_constraintStart_toStartOf="@+id/studentNameSet"
+            app:layout_constraintTop_toBottomOf="@+id/studentNameSet"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:id="@+id/card_view"
+            android:padding="20dp"
+
+            app:layout_constraintEnd_toEndOf="@id/subjectSet"
+            app:layout_constraintStart_toStartOf="@id/subjectSet"
+            app:layout_constraintTop_toBottomOf="@id/subjectSet">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:textColor="@color/shadow_black"
+                android:background="@drawable/activity_background"
+                android:text="@string/personal_information"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/shadow_black"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            app:layout_constraintEnd_toEndOf="@id/card_view"
+            app:layout_constraintStart_toStartOf="@id/card_view"
+            app:layout_constraintTop_toBottomOf="@id/card_view">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/full_name"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/colon"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:id="@+id/facultyFullNameSet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/developer_name"
+                        android:theme="@style/myTheme2"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/colon"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:id="@+id/facultyEmailSet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/developer_email"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/subject"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/colon"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:id="@+id/SubjectSet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/subject"
+                        android:theme="@style/myTheme2"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/semester"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/colon"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:id="@+id/facultySemesterSet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/semester"
+                        android:theme="@style/myTheme2"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/branch"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/colon"
+                        android:theme="@style/myTheme2" />
+
+                    <TextView
+                        android:id="@+id/facultyBranchSet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:theme="@style/myTheme2"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

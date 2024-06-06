@@ -32,7 +32,7 @@ public class StudentUtilitiesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        studentLogoutBtn = view.findViewById(R.id.studentlogoutButton);
+        studentLogoutBtn = view.findViewById(R.id.studentLogoutButton);
         studentLogoutBtn.setOnClickListener(v -> {
             auth.logout();
             Intent intent = new Intent(getContext(), LoginActivity.class);

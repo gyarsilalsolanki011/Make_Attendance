@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.gyarsilalsolanki011.makeattendance" />
-                  <option name="mobileSdkAppId" value="1:508535966125:android:dccf43b86f000362f93924" />
-                  <option name="projectId" value="makeattendance-887a8" />
-                  <option name="projectNumber" value="508535966125" />
+                  <option name="mobileSdkAppId" value="1:501898523866:android:a9914242238dba5301a1e3" />
+                  <option name="projectId" value="make-attendance-5a805" />
+                  <option name="projectNumber" value="501898523866" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

@@ -30,7 +30,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         whichUser = getIntent().getStringExtra("whichUser");
 
-        binding.alreadyAccountTextButton.setOnClickListener(v-> finish());
+        binding.alreadyAccountTextButton.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+        );
 
         binding.createAccountButton.setOnClickListener(
                 v -> createUser()
@@ -69,6 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                     iFaculty.putExtra("fullName", fullName);
                     iFaculty.putExtra("password", password);
                     startActivity(iFaculty);
+                    finish();
 
                 } else {
                     binding.progressIndicator.setVisibility(View.GONE);

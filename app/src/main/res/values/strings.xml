@@ -59,4 +59,7 @@
     <string name="faculty_name">Faculty Name</string>
     <string name="subject">Subject</string>
     <string name="clickHere">Click here to Select Field</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="colon">"  :  "</string>
+    <string name="your_setting">Your Setting</string>
 </resources>
