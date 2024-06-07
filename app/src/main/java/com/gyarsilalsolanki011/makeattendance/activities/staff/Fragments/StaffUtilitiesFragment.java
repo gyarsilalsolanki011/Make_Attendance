@@ -1,6 +1,9 @@
 package com.gyarsilalsolanki011.makeattendance.activities.staff.Fragments;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -35,11 +38,22 @@ public class StaffUtilitiesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Context context = getContext();
         button = view.findViewById(R.id.facultyLogoutButton);
-        button.setOnClickListener(v ->{
-            auth.logout();
-            Intent intent = new Intent(getContext(), LoginActivity.class);
-            startActivity(intent);
-        });
+        button.setOnClickListener(
+                v -> {
+                    assert context != null;
+                    logout(context);
+                }
+        );
+    }
+
+    @SuppressLint("CommitPrefEdits")
+    private void logout(@NonNull Context context) {
+        auth.logout();
+        SharedPreferences sharedPreferences = context.getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        sharedPreferences.edit().clear().apply();
+        Intent intent = new Intent(context, LoginActivity.class);
+        startActivity(intent);
     }
 }

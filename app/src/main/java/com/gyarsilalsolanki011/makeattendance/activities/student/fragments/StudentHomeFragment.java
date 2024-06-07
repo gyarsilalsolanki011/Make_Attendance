@@ -58,11 +58,11 @@ public class StudentHomeFragment extends Fragment {
         arrayListAttendance = new ArrayList<>();
 
         String[] subjectList = new String[]{
-                getString(R.string.maths),
-                getString(R.string.maths),
-                getString(R.string.maths),
-                getString(R.string.maths),
-                getString(R.string.maths),
+                getString(R.string.mc),
+                getString(R.string.ml),
+                getString(R.string.cn),
+                getString(R.string.ip),
+                getString(R.string.se),
         };
 
         String[] notificationList = new String[]{

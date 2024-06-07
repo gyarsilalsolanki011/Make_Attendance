@@ -26,7 +26,7 @@
             app:layout_constraintEnd_toEndOf="@id/constraintLay"/>
 
         <TextView
-            android:id="@+id/studentNameSet"
+            android:id="@+id/facultyNameSet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/developer_name"
@@ -50,9 +50,9 @@
             android:textColor="@color/black"
             android:textSize="20sp"
 
-            app:layout_constraintEnd_toEndOf="@+id/studentNameSet"
-            app:layout_constraintStart_toStartOf="@+id/studentNameSet"
-            app:layout_constraintTop_toBottomOf="@+id/studentNameSet"/>
+            app:layout_constraintEnd_toEndOf="@+id/facultyNameSet"
+            app:layout_constraintStart_toStartOf="@+id/facultyNameSet"
+            app:layout_constraintTop_toBottomOf="@+id/facultyNameSet"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -153,7 +153,7 @@
                         android:layout_marginStart="4dp"
                         android:text="@string/developer_email"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         />
 

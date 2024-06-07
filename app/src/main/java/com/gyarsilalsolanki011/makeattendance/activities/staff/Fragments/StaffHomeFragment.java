@@ -54,6 +54,12 @@ public class StaffHomeFragment extends Fragment {
         arrAttends.add(new AttendanceModel("Jogilal Solanki",2,2,2));
         arrAttends.add(new AttendanceModel("Bhaiyu Solanki",2,2,2));
         arrAttends.add(new AttendanceModel("Jogilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Gyarsilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Motilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Shantilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Jogilal Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Bhaiyu Solanki",2,2,2));
+        arrAttends.add(new AttendanceModel("Jogilal Solanki",2,2,2));
     }
 
     private void openProgressDialog() {
