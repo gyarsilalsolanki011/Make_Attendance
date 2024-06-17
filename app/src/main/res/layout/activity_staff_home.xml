@@ -21,6 +21,6 @@
         android:background="@color/green"
         android:id="@+id/bnView"
         app:menu="@menu/faculty_nave_items"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

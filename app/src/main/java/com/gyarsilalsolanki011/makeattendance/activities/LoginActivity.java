@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private String whichUser;
     String userType;
     RadioButton radioButton;
+    SharedPreferences sharedPreferences;
     private ActivityLoginBinding binding;
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
     private final FirebaseUserRepository userRepository = new FirebaseUserRepository();
@@ -91,8 +92,8 @@ public class LoginActivity extends AppCompatActivity {
         if (whichUser.equals("Student")) {
             userRepository.getStudentData().addOnSuccessListener(
                     doc -> {
-                        SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
-                        sharedPreferences.edit().putString("userType", "Student").apply();
+                        sharedPreferences = getSharedPreferences("user_type", MODE_PRIVATE);
+                        sharedPreferences.edit().putString("whichUser", "Student").apply();
                         Intent iStudentView = new Intent(LoginActivity.this, StudentHomeActivity.class);
                         startActivity(iStudentView);
                         finish();
@@ -103,8 +104,8 @@ public class LoginActivity extends AppCompatActivity {
         else {
             userRepository.getFacultyData().addOnSuccessListener(
                     doc -> {
-                        SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
-                        sharedPreferences.edit().putString("userType", "Faculty").apply();
+                        sharedPreferences = getSharedPreferences("user_type", MODE_PRIVATE);
+                        sharedPreferences.edit().putString("whichUser", "Faculty").apply();
                         Intent iFacultyView = new Intent(LoginActivity.this, StaffHomeActivity.class);
                         startActivity(iFacultyView);
                         finish();

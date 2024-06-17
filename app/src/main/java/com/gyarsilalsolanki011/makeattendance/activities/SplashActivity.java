@@ -12,11 +12,12 @@ import com.gyarsilalsolanki011.makeattendance.R;
 import com.gyarsilalsolanki011.makeattendance.activities.staff.StaffHomeActivity;
 import com.gyarsilalsolanki011.makeattendance.activities.student.StudentHomeActivity;
 import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
-import com.gyarsilalsolanki011.makeattendance.repository.user.UserType;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
+    SharedPreferences sharedPreferences;
+    String whichUser;
 
     @Override
     protected void onStart() {
@@ -34,15 +35,15 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void checkLoginStatus() {
-        SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
-        UserType userType = UserType.valueOf(sharedPreferences.getString("userType", "Student"));
+        sharedPreferences = getSharedPreferences("user_type", MODE_PRIVATE);
+        whichUser = sharedPreferences.getString("whichUser", "Faculty");
         if (auth.getCurrentUser() != null) {
             Intent intent;
-            switch (userType){
-                case Faculty:
+            switch (whichUser){
+                case "Faculty":
                     intent = new Intent(SplashActivity.this, StaffHomeActivity.class);
                     break;
-                case Student:
+                case "Student":
                     intent = new Intent(SplashActivity.this, StudentHomeActivity.class);
                     break;
                 default:

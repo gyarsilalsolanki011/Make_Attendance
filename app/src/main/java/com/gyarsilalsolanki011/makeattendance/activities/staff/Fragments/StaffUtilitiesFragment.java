@@ -23,6 +23,7 @@ public class StaffUtilitiesFragment extends Fragment {
 
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
     MaterialButton button;
+    SharedPreferences sharedPreferences;
 
     public StaffUtilitiesFragment() {
 
@@ -51,9 +52,11 @@ public class StaffUtilitiesFragment extends Fragment {
     @SuppressLint("CommitPrefEdits")
     private void logout(@NonNull Context context) {
         auth.logout();
-        SharedPreferences sharedPreferences = context.getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        assert this.getActivity() != null;
+        sharedPreferences = this.getActivity().getSharedPreferences("user_type", Context.MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
         Intent intent = new Intent(context, LoginActivity.class);
         startActivity(intent);
+        getActivity().finish();
     }
 }
