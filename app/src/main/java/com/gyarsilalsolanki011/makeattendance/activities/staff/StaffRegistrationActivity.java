@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
+import com.gyarsilalsolanki011.makeattendance.activities.LoginActivity;
 import com.gyarsilalsolanki011.makeattendance.activities.student.StudentHomeActivity;
 import com.gyarsilalsolanki011.makeattendance.activities.student.StudentRegistrationActivity;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityStaffRegistrationBinding;
@@ -65,8 +66,9 @@ public class StaffRegistrationActivity extends AppCompatActivity {
                 task.addOnSuccessListener(
                         authResult -> {
                             user.setFacultyData(User.faculty(email, facultyName, branch, semester, subject));
-                            Intent iFacultyHome = new Intent(StaffRegistrationActivity.this, StaffHomeActivity.class);
-                            startActivity(iFacultyHome);
+                            Intent iFacultyLogin = new Intent(StaffRegistrationActivity.this, LoginActivity.class);
+                            iFacultyLogin.putExtra("whichUser", "Faculty");
+                            startActivity(iFacultyLogin);
                             finish();
                         });
 

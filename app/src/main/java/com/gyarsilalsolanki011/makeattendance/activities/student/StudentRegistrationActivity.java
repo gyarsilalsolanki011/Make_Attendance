@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
+import com.gyarsilalsolanki011.makeattendance.R;
+import com.gyarsilalsolanki011.makeattendance.activities.LoginActivity;
 import com.gyarsilalsolanki011.makeattendance.databinding.ActivityStudentRegistrationBinding;
 import com.gyarsilalsolanki011.makeattendance.repository.auth.FirebaseAuthRepository;
 import com.gyarsilalsolanki011.makeattendance.repository.user.FirebaseUserRepository;
@@ -21,6 +23,7 @@ import java.util.Objects;
 public class StudentRegistrationActivity extends AppCompatActivity {
 
     private String fullName, email, password;
+    private static String[] subjectList;
     private ActivityStudentRegistrationBinding binding;
     private final FirebaseAuthRepository auth = new FirebaseAuthRepository();
     private final FirebaseUserRepository user = new FirebaseUserRepository();
@@ -38,6 +41,14 @@ public class StudentRegistrationActivity extends AppCompatActivity {
         binding.buttonSubmit.setOnClickListener(
                 v -> createUser()
         );
+
+        subjectList = new String[]{
+                getString(R.string.mc),
+                getString(R.string.ml),
+                getString(R.string.cn),
+                getString(R.string.ip),
+                getString(R.string.se),
+        };
     }
 
     private void createUser() {
@@ -69,8 +80,12 @@ public class StudentRegistrationActivity extends AppCompatActivity {
                 task.addOnSuccessListener(
                         authResult -> {
                             user.setStudentData(User.student(email, fullName, rollNumber, branch, semester, fatherName, motherName));
-                            Intent iStudentHome = new Intent(StudentRegistrationActivity.this, StudentHomeActivity.class);
-                            startActivity(iStudentHome);
+                            for (String s : subjectList) {
+                                user.setAttendanceData(User.Attendance(fullName, 2, 2, 2), s);
+                            }
+                            Intent iStudentLogin = new Intent(StudentRegistrationActivity.this, LoginActivity.class);
+                            iStudentLogin.putExtra("whichUser", "Student");
+                            startActivity(iStudentLogin);
                             finish();
                         });
 

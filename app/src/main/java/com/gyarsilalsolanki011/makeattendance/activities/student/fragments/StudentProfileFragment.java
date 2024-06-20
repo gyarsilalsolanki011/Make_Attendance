@@ -39,22 +39,7 @@ public class StudentProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        fullName = view.findViewById(R.id.studentFullNameSet);
-        fatherName = view.findViewById(R.id.studentFatherNameSet);
-        motherName = view.findViewById(R.id.studentMotherNameSet);
-        branch = view.findViewById(R.id.studentBranchSet);
-        semester = view.findViewById(R.id.studentSemesterSet);
-        email = view.findViewById(R.id.studentEmailSet);
-        studentName = view.findViewById(R.id.studentNameSet);
-        rollNumber = view.findViewById(R.id.rollNumberSet);
-
-        fullName.setText("Gyarsilal Soanki");
-        fatherName.setText("Gulabsingh Soanki");
-        motherName.setText("SakaliBai Salani");
-        rollNumber.setText("0201CS211039");
-        branch.setText("CSE");
-        semester.setText("VI");
-        email.setText("gyarsilalsolanki011@gmail.com");
+        setDataOnStudentProfile(view);
     }
 
     private void setDataOnStudentProfile(View view) {
@@ -72,7 +57,7 @@ public class StudentProfileFragment extends Fragment {
         DocumentReference documentReference = database.collection("Students").document(userId);
         documentReference.addSnapshotListener((value, error) -> {
             if (error != null){
-                Log.e("DataBase error", Objects.requireNonNull(error.getMessage()));
+                Log.e("DataBase Students error", Objects.requireNonNull(error.getMessage()));
             }
 
             assert value != null;
@@ -84,9 +69,6 @@ public class StudentProfileFragment extends Fragment {
             branch.setText(value.getString("branch"));
             semester.setText(value.getString("semester"));
             email.setText(value.getString("email"));
-
-            Log.d("Database values received", "fullName"+fullName);
-
         });
     }
 }

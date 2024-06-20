@@ -56,6 +56,7 @@ public class StaffUtilitiesFragment extends Fragment {
         sharedPreferences = this.getActivity().getSharedPreferences("user_type", Context.MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
         Intent intent = new Intent(context, LoginActivity.class);
+        intent.putExtra("whichUser", "Faculty");
         startActivity(intent);
         getActivity().finish();
     }

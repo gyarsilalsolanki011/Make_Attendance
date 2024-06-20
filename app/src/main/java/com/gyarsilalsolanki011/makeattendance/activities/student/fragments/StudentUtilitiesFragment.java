@@ -53,6 +53,7 @@ public class StudentUtilitiesFragment extends Fragment {
         sharedPreferences = this.getActivity().getSharedPreferences("user_type", Context.MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
         Intent intent = new Intent(context, LoginActivity.class);
+        intent.putExtra("whichUser", "Student");
         startActivity(intent);
         getActivity().finish();
     }

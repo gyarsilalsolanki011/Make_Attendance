@@ -40,6 +40,19 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        whichUser = getIntent().getStringExtra("whichUser");
+        if (whichUser == null){
+            binding.selectLinearLayout.setVisibility(View.VISIBLE);
+            binding.loginLinearLayout.setVisibility(View.GONE);
+            binding.moveForward.setOnClickListener(v -> {
+                whichUser = selectYourField();
+                Toast.makeText(this, "You have Selected "+whichUser, Toast.LENGTH_SHORT).show();
+            });
+        } else {
+            binding.selectLinearLayout.setVisibility(View.GONE);
+            binding.loginLinearLayout.setVisibility(View.VISIBLE);
+        }
+
         binding.moveForward.setOnClickListener(v -> {
             whichUser = selectYourField();
             Toast.makeText(this, "You have Selected "+whichUser, Toast.LENGTH_SHORT).show();
@@ -54,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         );
     }
 
-    private  void Register(){
+    private void Register(){
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         intent.putExtra("whichUser", whichUser);
         startActivity(intent);
@@ -93,11 +106,14 @@ public class LoginActivity extends AppCompatActivity {
             userRepository.getStudentData().addOnSuccessListener(
                     doc -> {
                         sharedPreferences = getSharedPreferences("user_type", MODE_PRIVATE);
-                        sharedPreferences.edit().putString("whichUser", "Student").apply();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("whichUser", "Student");
+                        editor.apply();
                         Intent iStudentView = new Intent(LoginActivity.this, StudentHomeActivity.class);
                         startActivity(iStudentView);
                         finish();
                     }
+
             );
         }
 
@@ -105,7 +121,9 @@ public class LoginActivity extends AppCompatActivity {
             userRepository.getFacultyData().addOnSuccessListener(
                     doc -> {
                         sharedPreferences = getSharedPreferences("user_type", MODE_PRIVATE);
-                        sharedPreferences.edit().putString("whichUser", "Faculty").apply();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("whichUser", "Faculty");
+                        editor.apply();
                         Intent iFacultyView = new Intent(LoginActivity.this, StaffHomeActivity.class);
                         startActivity(iFacultyView);
                         finish();
