@@ -65,7 +65,7 @@ public class StaffRegistrationActivity extends AppCompatActivity {
                 Task<AuthResult> task = auth.register(email, password);
                 task.addOnSuccessListener(
                         authResult -> {
-                            user.setFacultyData(User.faculty(email, facultyName, branch, semester, subject));
+                            user.setFacultyData(User.faculty(email, facultyName, subject, branch, semester));
                             Intent iFacultyLogin = new Intent(StaffRegistrationActivity.this, LoginActivity.class);
                             iFacultyLogin.putExtra("whichUser", "Faculty");
                             startActivity(iFacultyLogin);

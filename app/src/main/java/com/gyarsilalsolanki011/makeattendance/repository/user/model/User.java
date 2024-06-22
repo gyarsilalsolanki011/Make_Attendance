@@ -23,7 +23,7 @@ public class User {
         this.motherName = motherName;
     }
 
-    public User(@NotNull String email, @NotNull String fullName, @NotNull String branch, @NotNull String semester, @NotNull String subject) {
+    public User(@NotNull String email, @NotNull String fullName, @NotNull String subject, @NotNull String branch, @NotNull String semester) {
         this.email = email;
         this.fullName = fullName;
         this.branch = branch;
@@ -47,7 +47,7 @@ public class User {
     }
 
     public static User faculty(@NotNull String email, @NotNull String fullName, @NotNull String subject, @NotNull String branch, @NotNull String semester) {
-        return new User(email, fullName, branch, semester, subject);
+        return new User(email, fullName, subject, branch, semester);
     }
 
     public Map<String, Object> toMapStudent() {

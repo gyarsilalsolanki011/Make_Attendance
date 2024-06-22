@@ -24,7 +24,7 @@ import java.util.Objects;
 
 public class StaffProfileFragment extends Fragment {
 
-    TextView fullName, branch, semester, subject, email, facultyName;
+    TextView fullName, branch, semester, subject, email, facultyName, facultySubject;
     private final FirebaseFirestore database = FirebaseFirestore.getInstance();
     private  final FirebaseAuth Auth = FirebaseAuth.getInstance();
     String userId;
@@ -54,6 +54,7 @@ public class StaffProfileFragment extends Fragment {
         email = view.findViewById(R.id.facultyEmailSet);
         facultyName = view.findViewById(R.id.facultyNameSet);
         subject = view.findViewById(R.id.subjectSet);
+        facultySubject = view.findViewById(R.id.facultySubjectSet);
 
         userId = Objects.requireNonNull(Auth.getCurrentUser()).getUid();
         DocumentReference documentReference = database.collection("Faculties").document(userId);
@@ -69,6 +70,7 @@ public class StaffProfileFragment extends Fragment {
             branch.setText(value.getString("branch"));
             semester.setText(value.getString("semester"));
             email.setText(value.getString("email"));
+            facultySubject.setText(value.getString("subject"));
 
         });
     }
