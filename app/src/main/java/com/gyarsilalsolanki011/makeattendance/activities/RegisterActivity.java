@@ -38,6 +38,10 @@ public class RegisterActivity extends AppCompatActivity {
                 }
         );
 
+        if (binding.progressIndicator.isActivated()){
+            binding.progressIndicator.setVisibility(View.GONE);
+            binding.createAccountButton.setVisibility(View.VISIBLE);
+        }
         binding.createAccountButton.setOnClickListener(
                 v -> createUser()
         );
@@ -75,7 +79,6 @@ public class RegisterActivity extends AppCompatActivity {
                     iFaculty.putExtra("fullName", fullName);
                     iFaculty.putExtra("password", password);
                     startActivity(iFaculty);
-                    finish();
 
                 } else {
                     binding.progressIndicator.setVisibility(View.GONE);
