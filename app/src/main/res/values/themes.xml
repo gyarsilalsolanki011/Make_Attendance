@@ -31,4 +31,22 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <style name="Theme.Text.Bold" parent="Base.Theme.MakeAttendance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.Text" parent="Base.Theme.MakeAttendance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#0277BD</item>
+        <item name="android:textColorHighlight">@color/black</item>
+    </style>
+
+    <style name="Theme.Button.Bold" parent="Base.Theme.MakeAttendance">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
