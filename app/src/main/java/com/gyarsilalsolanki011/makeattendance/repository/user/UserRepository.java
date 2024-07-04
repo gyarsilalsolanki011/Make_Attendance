@@ -9,6 +9,6 @@ public interface UserRepository {
     void setStudentData(User user);
     Task<DocumentSnapshot> getFacultyData();
     void setFacultyData(User user);
-    Task<DocumentSnapshot> getAttendanceData();
+    Task<DocumentSnapshot> getAttendanceData(String subject);
     void setAttendanceData(User user, String subject);
 }

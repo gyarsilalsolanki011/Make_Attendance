@@ -52,7 +52,10 @@ public class FirebaseUserRepository implements UserRepository{
     }
 
     @Override
-    public Task<DocumentSnapshot> getAttendanceData() {
+    public Task<DocumentSnapshot> getAttendanceData(String subject) {
+
+        attendanceCollection = database.collection(subject);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
         return attendanceCollection.document(user.getUid()).get();
