@@ -33,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         binding.alreadyAccountTextButton.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    intent.putExtra("whichUser", whichUser);
                     startActivity(intent);
                     finish();
                 }

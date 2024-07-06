@@ -1,7 +1,5 @@
 package com.gyarsilalsolanki011.makeattendance.repository.user.model;
 
-import com.gyarsilalsolanki011.makeattendance.repository.user.UserType;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -104,12 +102,56 @@ public class User {
         return data;
     }
 
-    public User fromMapAttendance(Map<String, Object> data) {
-        return new User(
+    public void fromMapAttendance(Map<String, Object> data) {
+        new User(
                 (String) Objects.requireNonNull(data.get("fullName")),
                 (Integer) Objects.requireNonNull(data.get("present")),
                 (Integer) Objects.requireNonNull(data.get("absent")),
                 (Integer) Objects.requireNonNull(data.get("percentage"))
         );
+    }
+
+    public Integer getPresent() {
+        return present;
+    }
+
+    public Integer getAbsent() {
+        return absent;
+    }
+
+    public Integer getPercentage() {
+        return percentage;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getRollNumber() {
+        return rollNumber;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    public String getMotherName() {
+        return motherName;
+    }
+
+    public String getSubject() {
+        return subject;
     }
 }
