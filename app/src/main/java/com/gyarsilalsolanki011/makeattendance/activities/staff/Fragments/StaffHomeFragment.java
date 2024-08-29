@@ -50,22 +50,22 @@ public class StaffHomeFragment extends Fragment {
         openProgressDialog();
         //dataInitialize();
 
-        arrAttends.add(new AttendanceModel(2, "Gyarsilal Solanki", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Mohan Pyare", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Bhaiyalal Bare", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Ramcharan Chouhan", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Nandkishor More", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Chandan Nagvanshi", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Nirmla Goad", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Naman Mandloi", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Anil Yadav", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Vivek Tripathi", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Ramshankar Negi", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Abhimanyu Thakur", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Jaishanker Yadav", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Nitesh fakir", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Kumar Pandit", 2, 2));
-        arrAttends.add(new AttendanceModel(2, "Deelip Kripalu", 2, 2));
+        arrAttends.add(new AttendanceModel(3, "Gyarsilal Solanki", 1, 75));
+        arrAttends.add(new AttendanceModel(2, "Mohan Pyare", 2, 50));
+        arrAttends.add(new AttendanceModel(4, "Bhaiyalal Bare", 0, 100));
+        arrAttends.add(new AttendanceModel(3, "Ramcharan Chouhan", 1, 75));
+        arrAttends.add(new AttendanceModel(4, "Nandkishor More", 0, 100));
+        arrAttends.add(new AttendanceModel(4, "Chandan Nagvanshi", 0, 100));
+        arrAttends.add(new AttendanceModel(3, "Nirmla Goad", 1, 75));
+        arrAttends.add(new AttendanceModel(2, "Naman Mandloi", 2, 50));
+        arrAttends.add(new AttendanceModel(4, "Anil Yadav", 0, 100));
+        arrAttends.add(new AttendanceModel(3, "Vivek Tripathi", 1, 75));
+        arrAttends.add(new AttendanceModel(3, "Ramshankar Negi", 1, 75));
+        arrAttends.add(new AttendanceModel(3, "Abhimanyu Thakur", 1, 75));
+        arrAttends.add(new AttendanceModel(4, "Jaishanker Yadav", 0, 100));
+        arrAttends.add(new AttendanceModel(4, "Nitesh fakir", 0, 100));
+        arrAttends.add(new AttendanceModel(2, "Kumar Pandit", 2, 50));
+        arrAttends.add(new AttendanceModel(3, "Deelip Kripalu", 1, 75));
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);

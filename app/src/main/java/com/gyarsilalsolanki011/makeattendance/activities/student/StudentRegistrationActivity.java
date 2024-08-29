@@ -81,7 +81,7 @@ public class StudentRegistrationActivity extends AppCompatActivity {
                         authResult -> {
                             user.setStudentData(User.student(email, fullName, rollNumber, branch, semester, fatherName, motherName));
                             for (String s : subjectList) {
-                                user.setAttendanceData(User.Attendance(fullName, 2, 2, 2), s);
+                                user.setAttendanceData(User.Attendance(fullName, 2, 0, 100), s);
                             }
                             Intent iStudentLogin = new Intent(StudentRegistrationActivity.this, LoginActivity.class);
                             iStudentLogin.putExtra("whichUser", "Student");

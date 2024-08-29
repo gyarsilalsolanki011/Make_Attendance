@@ -4,7 +4,7 @@ public class AttendanceModel {
     public String fullName;
     public Integer present, absent, percentage;
 
-    public AttendanceModel(Integer absent, String fullName,  Integer percentage, Integer present) {
+    public AttendanceModel(Integer present, String fullName,  Integer absent, Integer percentage) {
         this.fullName = fullName;
         this.present = present;
         this.absent = absent;
