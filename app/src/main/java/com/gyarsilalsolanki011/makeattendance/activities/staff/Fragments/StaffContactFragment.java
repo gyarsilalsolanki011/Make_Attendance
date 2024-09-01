@@ -66,7 +66,7 @@ public class StaffContactFragment extends Fragment {
         send_your_message = v.findViewById(R.id.send_your_message);
         send_your_message.setOnClickListener(v1 -> {
             Intent intent = new Intent(Intent.ACTION_SENDTO);
-            String uriText = "mailto:" + Uri.encode("gyarsials105@gmail.com") + "?subject=" +
+            String uriText = "mailto:" + Uri.encode("gyarsilals105@gmail.com") + "?subject=" +
                     Uri.encode("Ask yor query") + "&body=" + Uri.encode("please make sure to write name and phone number too");
 
             Uri uri = Uri.parse(uriText);
