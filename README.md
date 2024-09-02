@@ -8,4 +8,4 @@ which make possible for the students to view or trace their attendance and notif
 which make possible to take attendance of students by the faculty.
 
 ### Try Out the app 👇👇 
-🔗(Download Apk) : https://drive.google.com/file/d/1Pmm8hR8yhPa1xDpo-hr49rY90cRNgzeD/view?usp=drive_link
+🔗(Download Apk) : [Download the apk and install on any android oprating system](https://drive.google.com/file/d/1Pmm8hR8yhPa1xDpo-hr49rY90cRNgzeD/view?usp=drive_link)
